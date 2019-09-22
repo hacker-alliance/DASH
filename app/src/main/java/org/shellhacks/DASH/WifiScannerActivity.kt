@@ -22,7 +22,7 @@ class WifiScannerActivity : AppCompatActivity()
             }
         }
     }
-
+    /*
     val intentFilter = IntentFilter()
     intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
     context.registerReceiver(wifiScanReceiver, intentFilter)
@@ -31,7 +31,8 @@ class WifiScannerActivity : AppCompatActivity()
     if (!success) {
     // scan failure handling
     scanFailure()
-}
+    }
+    */
 
     private fun scanSuccess() {
         val results = wifiManager.scanResults
