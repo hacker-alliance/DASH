@@ -5,8 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.wifi.WifiManager
+import androidx.appcompat.app.AppCompatActivity
 
-class WifiScannerActivity
+class WifiScannerActivity : AppCompatActivity()
 {
     val wifiManager = this.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
@@ -27,19 +28,18 @@ class WifiScannerActivity
     context.registerReceiver(wifiScanReceiver, intentFilter)
 
     val success = wifiManager.startScan()
-    if (!success)
-    {
-        // scan failure handling
-        scanFailure()
-    }
+    if (!success) {
+    // scan failure handling
+    scanFailure()
+}
 
     private fun scanSuccess() {
-        val results = wifiManager.scanResults()
+        val results = wifiManager.scanResults
     }
 
     private fun scanFailure() {
         // handle failure: new scan did NOT succeed
         // consider using old scan results: these are the OLD results!
-        val results = wifiManager.scanResults()
+        val results = wifiManager.scanResults
     }
 }
