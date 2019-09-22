@@ -1,16 +1,15 @@
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('Shooter Location Request Processed');
+    let responseJSON = {
+        lat: 25.75562,
+        long: -80.3726,
+        confindence: 10,
+        timestamp: Date.now()
+    };
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
+     context.res = {
             // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
+            'Content-Type': 'application/json',
+            body: responseJSON
+    };
 };
