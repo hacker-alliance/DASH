@@ -1,6 +1,7 @@
 package org.shellhacks.dash
 
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,12 +11,9 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -100,6 +98,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         mMap.setMinZoomPreference(19.0f)
         mMap.setMaxZoomPreference(25.0f)
         mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+        val circle = mMap.addCircle(CircleOptions().center(
+            LatLng(25.75562, -80.3726))
+            .radius(10.0)
+            .fillColor(Color.RED)
+            .strokeColor(Color.BLACK)
+        )
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(FIU271B))
         setUpMap()
     }
