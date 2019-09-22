@@ -1,4 +1,4 @@
-package org.shellhacks.DASH
+package org.shellhacks.dash
 
 import org.junit.Test
 
